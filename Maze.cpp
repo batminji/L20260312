@@ -41,6 +41,8 @@ int main()
 		delete[] Map[i];
 	}
 	delete[] Map;
+
+	Map = nullptr;
 }
 
 void Init(int** Map, int Row, int Col)
