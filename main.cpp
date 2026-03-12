@@ -1,8 +1,8 @@
 #include <iostream>
 #include <algorithm>
 
-#define NUMBER_SIZE 45
-#define PICK_NUMBER_SIZE 6
+#define NUMBER_SIZE 100
+#define PICK_NUMBER_SIZE 10
 
 void Init(int* Numbers, int Size);
 void Shuffle(int* Numbers, int Size);
@@ -61,7 +61,7 @@ void PickNumbers(const int* Numbers, int* MyNumbers, int Size)
 
 void PrintMyNumbers(const int* MyNumbers, int Size)
 {
-	std::cout << "·£´ý ¼ýÀÚ 6°³ : ";
+	std::cout << "·£´ý ¼ýÀÚ " << Size << "°³ : ";
 	for (int i = 0; i < Size; ++i)
 	{
 		std::cout << MyNumbers[i] << " ";
