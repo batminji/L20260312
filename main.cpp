@@ -1,8 +1,8 @@
 #include <iostream>
 #include <algorithm>
 
-#define NUMBER_SIZE 100
-#define PICK_NUMBER_SIZE 10
+#define NUMBER_SIZE 30
+#define PICK_NUMBER_SIZE 6
 
 /*
 배열을 초기화
@@ -38,10 +38,13 @@ int main()
 	int* Numbers = new int[NUMBER_SIZE];
 	int* MyNumbers = new int[PICK_NUMBER_SIZE];
 
+	srand((unsigned int)time(nullptr));
+
 	Init(Numbers, NUMBER_SIZE);
 	//Shuffle(Numbers, NUMBER_SIZE);
-	std::random_shuffle(&Numbers[0], &Numbers[NUMBER_SIZE - 1]);
+	std::random_shuffle(&Numbers[0], &Numbers[NUMBER_SIZE]);
 	PickNumbers(Numbers, MyNumbers, PICK_NUMBER_SIZE);
+	PrintMyNumbers(Numbers, NUMBER_SIZE);
 	PrintMyNumbers(MyNumbers, PICK_NUMBER_SIZE);
 	
 	delete[] Numbers;
@@ -62,8 +65,6 @@ void Init(int* Numbers, int Size)
 
 void Shuffle(int* Numbers, int Size)
 {
-	srand((unsigned int)time(nullptr));
-
 	for (int i = 0; i < Size * 10; ++i)
 	{
 		int FirstIndex = rand() % Size;
