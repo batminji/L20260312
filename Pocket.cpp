@@ -1,9 +1,6 @@
 #include <iostream>
 #include <algorithm>
 
-#define NUMBER_SIZE 30
-#define PICK_NUMBER_SIZE 6
-
 /*
 배열을 초기화
 Numbers : int 배열
@@ -35,17 +32,23 @@ void PrintMyNumbers(const int* Numbers, int Size);
 
 int main()
 {
-	int* Numbers = new int[NUMBER_SIZE];
-	int* MyNumbers = new int[PICK_NUMBER_SIZE];
+	int NumberSize = 0;
+	int PickSize = 0;
+	std::cout << "총 공의 개수를 입력 : ";
+	std::cin >> NumberSize;
 
-	srand((unsigned int)time(nullptr));
+	std::cout << "뽑을 공의 개수를 입력 : ";
+	std::cin >> PickSize;
 
-	Init(Numbers, NUMBER_SIZE);
-	//Shuffle(Numbers, NUMBER_SIZE);
-	std::random_shuffle(&Numbers[0], &Numbers[NUMBER_SIZE]);
-	PickNumbers(Numbers, MyNumbers, PICK_NUMBER_SIZE);
-	PrintMyNumbers(Numbers, NUMBER_SIZE);
-	PrintMyNumbers(MyNumbers, PICK_NUMBER_SIZE);
+	int* Numbers = new int[NumberSize];
+	int* MyNumbers = new int[PickSize];
+
+	Init(Numbers, NumberSize);
+	// Shuffle(Numbers, NUMBER_SIZE);
+	std::random_shuffle(&Numbers[0], &Numbers[NumberSize]);
+	PickNumbers(Numbers, MyNumbers, PickSize);
+	// PrintMyNumbers(Numbers, NUMBER_SIZE);
+	PrintMyNumbers(MyNumbers, PickSize);
 	
 	delete[] Numbers;
 	delete[] MyNumbers;
@@ -57,6 +60,9 @@ int main()
 
 void Init(int* Numbers, int Size)
 {
+	// 초기화 함수이기 때문에, srand 함수를 초기화에 넣는다
+	srand((unsigned int)time(nullptr));
+
 	for (int i = 0; i < Size; ++i)
 	{
 		Numbers[i] = i + 1;
