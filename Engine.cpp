@@ -17,8 +17,7 @@ int Map[10][10] =
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 };
 
-int PlayerX = 1;
-int PlayerY = 1;
+FVector2i PlayerPosition = { 1, 1 };
 
 int Input()
 {
@@ -29,22 +28,21 @@ void Tick(int KeyCode)
 {
 	if (KeyCode == 'W' || KeyCode == 'w')
 	{
-		AddPlayerOffset(0, -1);
+		AddPlayerOffset({ 0, -1 });
 	}
 	if (KeyCode == 'S' || KeyCode == 's')
 	{
-		AddPlayerOffset(0, 1);
+		AddPlayerOffset({ 0, 1 });
 	}
 	if (KeyCode == 'A' || KeyCode == 'a')
 	{
-		AddPlayerOffset(-1, 0);
+		AddPlayerOffset({ -1, 0 });
 	}
 	if (KeyCode == 'D' || KeyCode == 'd')
 	{
-		AddPlayerOffset(1, 0);
+		AddPlayerOffset({ 1, 0 });
 	}
 }
-
 
 void Clear()
 {
@@ -66,8 +64,8 @@ void Render()
 	{
 		for (int X = 0; X < 10; ++X)
 		{
-			GotoXY(2* X, Y);
-			if (PlayerX == X && PlayerY == Y)
+			GotoXY(2 * X, Y);
+			if (PlayerPosition.X == X && PlayerPosition.Y == Y)
 			{
 				std::cout << "P ";
 			}
@@ -91,6 +89,12 @@ void GotoXY(int x, int y)
 
 void AddPlayerOffset(int DeltaX, int DeltaY)
 {
-	PlayerX += DeltaX;
-	PlayerY += DeltaY;
+	PlayerPosition.X += DeltaX;
+	PlayerPosition.Y += DeltaY;
+}
+
+void AddPlayerOffset(FVector2i DeltaPosition)
+{
+	PlayerPosition.X += DeltaPosition.X;
+	PlayerPosition.Y += DeltaPosition.X;
 }
