@@ -2,8 +2,8 @@
 #include <conio.h>
 #include <Windows.h>
 
-#define ROWSIZE 10
-#define COLSIZE 10
+#define ROWSIZE 20
+#define COLSIZE 20
 
 void Init(int** Map, int Row, int Col);
 void Draw(int** Map, int PlayerX, int PlayerY, int Row, int Col);
