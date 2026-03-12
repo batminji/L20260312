@@ -6,8 +6,8 @@
 
 void Init(int* Numbers, int Size);
 void Shuffle(int* Numbers, int Size);
-void PickNumbers(int* Numbers, int* MyNumbers, int Size);
-void PrintMyNumbers(int* MyNumbers, int Size);
+void PickNumbers(const int* Numbers, int* MyNumbers, int Size);
+void PrintMyNumbers(const int* MyNumbers, int Size);
 
 int main()
 {
@@ -46,7 +46,7 @@ void Shuffle(int* Numbers, int Size)
 	}
 }
 
-void PickNumbers(int* Numbers, int* MyNumbers, int Size)
+void PickNumbers(const int* Numbers, int* MyNumbers, int Size)
 {
 	for (int i = 0; i < Size; ++i)
 	{
@@ -54,7 +54,7 @@ void PickNumbers(int* Numbers, int* MyNumbers, int Size)
 	}
 }
 
-void PrintMyNumbers(int* MyNumbers, int Size)
+void PrintMyNumbers(const int* MyNumbers, int Size)
 {
 	std::cout << "·£´ý ¼ýÀÚ 6°³ : ";
 	for (int i = 0; i < Size; ++i)
