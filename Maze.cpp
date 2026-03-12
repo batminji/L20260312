@@ -2,6 +2,9 @@
 #include <conio.h>
 #include <Windows.h>
 
+#define ROWSIZE 10
+#define COLSIZE 10
+
 void Init(int** Map, int Row, int Col);
 void Draw(int** Map, int PlayerX, int PlayerY, int Row, int Col);
 void MovePlayer(int** Map, int* PlayerX, int* PlayerY, int Input);
@@ -9,8 +12,8 @@ bool CheckWall(int** Map, int PlayerX, int PlayerY);
 
 int main()
 {
-	int Row = 10;
-	int Col = 10;
+	int Row = ROWSIZE;
+	int Col = COLSIZE;
 
 	int** Map = new int*[Row];
 	for (int i = 0; i < Row; ++i)
@@ -51,19 +54,7 @@ void Init(int** Map, int Row, int Col)
 	{
 		for (int j = 0; j < Col; ++j)
 		{
-			if (i == 0)
-			{
-				Map[i][j] = 1;
-			}
-			else if (i == Row - 1)
-			{
-				Map[i][j] = 1;
-			}
-			else if (j == 0)
-			{
-				Map[i][j] = 1;
-			}
-			else if (j == Col - 1)
+			if (i == 0 || i == Row - 1 || j == 0 || j == Col - 1)
 			{
 				Map[i][j] = 1;
 			}
