@@ -13,9 +13,9 @@ int main()
 	int Col = 10;
 
 	int** Map = new int*[Row];
-	for (int i = 0; i < 10; ++i)
+	for (int i = 0; i < Row; ++i)
 	{
-		Map[i] = new int[10];
+		Map[i] = new int[Col];
 	}
 
 	int PlayerX = 1;
