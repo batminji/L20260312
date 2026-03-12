@@ -4,10 +4,34 @@
 #define NUMBER_SIZE 100
 #define PICK_NUMBER_SIZE 10
 
+/*
+배열을 초기화
+Numbers : int 배열
+Size : 배열의 크기
+*/
 void Init(int* Numbers, int Size);
+
+/*
+배열을 랜덤하게 섞음
+Numbers : int 배열
+Size : 배열의 크기
+*/
 void Shuffle(int* Numbers, int Size);
+
+/*
+배열을 랜덤하게 뽑음
+Numbers : 뽑을 배열
+MuNumbers : 뽑은 int를 저장할 배열
+Size : 뽑을 개수
+*/
 void PickNumbers(const int* Numbers, int* MyNumbers, int Size);
-void PrintMyNumbers(const int* MyNumbers, int Size);
+
+/*
+배열을 출력
+Numbers : 배열을 출력
+Size : 배열의 크기
+*/
+void PrintMyNumbers(const int* Numbers, int Size);
 
 int main()
 {
@@ -59,12 +83,12 @@ void PickNumbers(const int* Numbers, int* MyNumbers, int Size)
 	}
 }
 
-void PrintMyNumbers(const int* MyNumbers, int Size)
+void PrintMyNumbers(const int* Numbers, int Size)
 {
 	std::cout << "랜덤 숫자 " << Size << "개 : ";
 	for (int i = 0; i < Size; ++i)
 	{
-		std::cout << MyNumbers[i] << " ";
+		std::cout << Numbers[i] << " ";
 	}
 	std::cout << std::endl;
 }
