@@ -19,6 +19,11 @@ int main()
 	std::random_shuffle(&Numbers[0], &Numbers[NUMBER_SIZE - 1]);
 	PickNumbers(Numbers, MyNumbers, PICK_NUMBER_SIZE);
 	PrintMyNumbers(MyNumbers, PICK_NUMBER_SIZE);
+	
+	delete[] Numbers;
+	delete[] MyNumbers;
+	Numbers = nullptr;
+	MyNumbers = nullptr;
 
 	return 0;
 }
