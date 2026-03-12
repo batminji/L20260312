@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #define NUMBER_SIZE 45
 #define PICK_NUMBER_SIZE 6
@@ -10,11 +11,12 @@ void PrintMyNumbers(int* MyNumbers, int Size);
 
 int main()
 {
-	int Numbers[NUMBER_SIZE] = { 0, };
-	int MyNumbers[6] = { 0, };
+	int* Numbers = new int[NUMBER_SIZE];
+	int* MyNumbers = new int[PICK_NUMBER_SIZE];
 
 	Init(Numbers, NUMBER_SIZE);
-	Shuffle(Numbers, NUMBER_SIZE);
+	//Shuffle(Numbers, NUMBER_SIZE);
+	std::random_shuffle(&Numbers[0], &Numbers[NUMBER_SIZE - 1]);
 	PickNumbers(Numbers, MyNumbers, PICK_NUMBER_SIZE);
 	PrintMyNumbers(MyNumbers, PICK_NUMBER_SIZE);
 
@@ -35,8 +37,8 @@ void Shuffle(int* Numbers, int Size)
 
 	for (int i = 0; i < Size * 10; ++i)
 	{
-		int FirstIndex = rand() % 45;
-		int SecondIndex = rand() % 45;
+		int FirstIndex = rand() % Size;
+		int SecondIndex = rand() % Size;
 
 		int Temp = Numbers[FirstIndex];
 		Numbers[FirstIndex] = Numbers[SecondIndex];
